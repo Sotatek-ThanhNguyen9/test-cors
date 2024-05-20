@@ -1,6 +1,21 @@
+"use client";
+
+import axios from "axios";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    axios.get("https://api-admin-stg.sheisdao.io/api/v1/admin/users", {
+      data: {
+        keyword: "",
+        status: "",
+        limit: 20,
+        page: 1,
+      },
+    });
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
